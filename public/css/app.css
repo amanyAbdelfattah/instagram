@@ -10943,4 +10943,107 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
+.profileinfo{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
+  margin-bottom: 80px;
+}
+.profileinfo img{
+  max-width: 100%;
+  height: 30vh;
+  border: 1px solid #D1D9D9;
+  border-radius: 50%;
+}
+.profileinfo .userinfo {
+  padding-top: 20px;
+  flex-basis: 50%;
+}
+.profileinfo .userinfo .controls{
+  display: flex;
+  justify-content: space-between;
+}
+.accinfo {
+  display: flex;
+  margin-top: 20px;
+  margin-top: 40px;
+  justify-content: space-around;
+}
+.profileinfo .userinfo .accinfo a {
+  border: none;
+  color: black;
+}
+.profileinfo .userinfo .accinfo a span{
+  font-weight: bold;
+}
+.profileinfo .userinfo a{
+  text-decoration: none;
+  border-radius: 7px;
+  height: fit-content;
+  border: 1px solid gray;
+  padding: 1px 25px;
+  font-weight: 600;
+}
+.profileinfo .userinfo a:first-of-type{
+  color: black;
+}
+.profileinfo .userinfo .fa-cog{
+  font-size: 20px;
+}
+.bio p {
+    margin-top: 40px;
+}
+.bio p span{
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.userpics{
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.userpics img {
+  max-width: 28%;
+  max-height: fit-content;
+  margin-bottom: 20px;
+  position: relative;
+}
+.overlay, .overlay2, .overlay3{
+  z-index: 1;
+  position: absolute;
+  opacity: 0;
+  transition: .7s ease-in-out;
+}
+.overlay {
+  width: 27.2%;
+  height: 379px;
+  top: 52%;
+  left: 4%;
+}
+.overlay2 {
+  width: 27.3%;
+  height: 379px;
+  top: 52%;
+  left: 36.4%;
+}
+.overlay3 {
+  width: 27.2%;
+  height: 379px;
+  top: 52%;
+  left: 68.8%;
+}
+.overlay:hover , .overlay2:hover , .overlay3:hover{
+  background-color: rgba(49, 55, 61, 0.5);
+  opacity: 1;
+  cursor: pointer;
+}
+.userpics .overlay, .overlay2, .overlay3 {
+  display: flex;
+  justify-content: space-evenly;
+}
+.userpics p {
+  transform: translate(0.5rem, 9rem);
+  font-size: 25px;
+  color: white;
+}
