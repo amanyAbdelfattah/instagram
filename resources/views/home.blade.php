@@ -14,12 +14,12 @@
                     @endif
 
                     <div class="profileinfo">
-                        <img src="img/Amany.jpeg" alt="">
+                        <img src="{{asset('uploads/users/' . $user->image)}}" alt="Not Found" onerror=this.src="img/noimage.jpg">
                         <div class="userinfo">
                             <div class="controls">
                                 <h3>{{ Auth::user()->name }}</h3>
-                                <a href="#">Edit Profile</a>
-                                <a href="#"><i class="fas fa-plus"></i></a>
+                                <a href="{{route('profile.edit' , $user->id)}}">Edit Profile</a>
+                                <a href="{{route('post.create')}}"><i class="fas fa-plus"></i></a>
                                 <i class="fas fa-cog"></i>
                             </div>
                             <div class="accinfo">
@@ -28,27 +28,19 @@
                                 <a href="#"><span>136</span> following</a>
                             </div>
                             <div class="bio">
-                                <p><span>full stack developer</span> BIS department<br>"if you want to be respected place a high value of yourself" &#128133; &#128081;<br>Learn to say No</p>
+                                <p>{{Auth::user()->bio}}</p>
                             </div>
                         </div>
                     </div>
+                    @foreach ($posts as $post)
                     <div class="userpics">
-                        <img src="img/Amany2.jpeg" alt="">
+                        <img src="{{asset('uploads/posts/' . $post->pimg)}}" alt="">
                         <div class="overlay">
                             <p><i class="fas fa-heart"></i> 56</p>
                             <p><i class="fas fa-comment"></i> 2</p>
                         </div>
-                        <img src="img/Amany3.jpeg" alt="">
-                        <div class="overlay2">
-                            <p><i class="fas fa-heart"></i> 56</p>
-                            <p><i class="fas fa-comment"></i> 2</p>
-                        </div>
-                        <img src="img/Amany4.jpeg" alt="">
-                        <div class="overlay3">
-                            <p><i class="fas fa-heart"></i> 56</p>
-                            <p><i class="fas fa-comment"></i> 2</p>
-                        </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
