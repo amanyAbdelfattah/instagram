@@ -15,8 +15,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="shortcut icon" href="img/InstagramLogo.png">
+    <link rel="stylesheet" href="{{URL::asset('css/all.min.css')}}">
+    <link rel="shortcut icon" href="{{URL::asset('img/InstagramLogo.png')}}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -25,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container mt-2">
-                    <h3> <i class="fab fa-instagram"></i> My Instagram</h3>
+                    <h3><a href="{{route('home')}}"> <i class="fab fa-instagram"></i> My Instagram</a></h3>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -77,5 +77,5 @@
         </main>
     </div>
 </body>
-<script src="js/all.min.js"></script>
+<script src="{{URL::asset('js/all.min.js')}}"></script>
 </html>

@@ -31,7 +31,11 @@ class HomeController extends Controller
         $posts = DB::table('posts')
         ->where('user_id', '=', Auth::user()->id)
         ->get();
-        return view('home', compact('user', 'posts'));
+        $post = DB::table('posts')
+        ->where('user_id', '=', Auth::user()->id)
+        ->get()
+        ->count();
+        return view('home', compact('user', 'posts' , 'post'));
     }
     public function show($id)
     {
@@ -84,6 +88,6 @@ class HomeController extends Controller
             $user->image = '';
         }
         $user->update();
-        return redirect()->back();
+        return redirect()->back()->with(['success' => 'Profile is updated']);;
     }
 }

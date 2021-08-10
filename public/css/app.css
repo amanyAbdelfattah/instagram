@@ -10943,11 +10943,53 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+#app h3 a {
+  color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  cursor: pointer;
+}
 .profileinfo{
   display: flex;
   justify-content: space-around;
   padding-top: 50px;
   margin-bottom: 80px;
+}
+.postinfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 90px;
+}
+.postinfo img {
+  max-width: 55%;
+}
+.card {
+  flex-basis: 30%;
+}
+.postinfo .card .card-body .card-title img {
+  max-width: 20%;
+  border-radius: 50%;
+  border: 1px solid #AAAAAA;
+  margin-right: 10px;
+}
+p.card-text {
+  margin-top: 40px;
+  text-indent: 20%;
+  font-size: 18px;
+  font-weight: 600;
+}
+.card-body.post-body{
+    width: 100%;
+}
+.card-body input[type="text"]{
+  width: 100%;
+  text-align: center;
+  margin-left: 50%;
+}
+.btn-group {
+  position: absolute;
+  top: -1px;
+  left: 86.4%;
 }
 .profileinfo img{
   max-width: 100%;
@@ -11001,16 +11043,18 @@ a.text-dark:focus {
   margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-.userpics img {
-  max-width: 28%;
+.userpics a {
+  flex-basis: 30%;
+}
+.userpics a img {
+  max-width: 100%;;
   max-height: fit-content;
   margin-bottom: 20px;
   position: relative;
 }
-.overlay, .overlay2, .overlay3{
-  z-index: 1;
+.overlay{
   position: absolute;
   opacity: 0;
   transition: .7s ease-in-out;
@@ -11021,24 +11065,12 @@ a.text-dark:focus {
   top: 52%;
   left: 4%;
 }
-.overlay2 {
-  width: 27.3%;
-  height: 379px;
-  top: 52%;
-  left: 36.4%;
-}
-.overlay3 {
-  width: 27.2%;
-  height: 379px;
-  top: 52%;
-  left: 68.8%;
-}
-.overlay:hover , .overlay2:hover , .overlay3:hover{
-  background-color: rgba(49, 55, 61, 0.5);
+.overlay:hover{
+  background: rgba(49, 55, 61, 0.5);
   opacity: 1;
   cursor: pointer;
 }
-.userpics .overlay, .overlay2, .overlay3 {
+.userpics .overlay{
   display: flex;
   justify-content: space-evenly;
 }

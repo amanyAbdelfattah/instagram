@@ -1,5 +1,6 @@
 <?php
 
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
+    Alert::success('Success Title', 'Success Message');
     return view('welcome');
 });
 Route::resource("/profile" , 'HomeController');

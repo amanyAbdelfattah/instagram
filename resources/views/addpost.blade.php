@@ -11,9 +11,9 @@
                             <h1 class="h4 text-gray-900 mb-4">Add New Post</h1>
                         </div>
                         <form method="POST" action="{{route('post.store')}}" class="user mx-5" enctype="multipart/form-data">
-                            {{-- <div class="row">
+                            <div class="row">
                                 @include('sweetalert::alert')
-                            </div> --}}
+                            </div>
                             <div class="form-group row">
                                 @csrf
                                 <div class="form-group row">

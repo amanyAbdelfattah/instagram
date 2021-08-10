@@ -6,10 +6,12 @@
         <div class="col-md-8">
             <form method="POST" action="{{route('profile.update' , $user->id)}}"
                 enctype="multipart/form-data">
-                @csrf
-                {{method_field('PUT')}}
+
+                
 
                 <div class="form-group row">
+                @csrf
+                {{method_field('PUT')}}
                     <label class="col-md-4 col-form-label text-md-right">Upload Profile Picture</label>
 
                     <div class="col-md-6">
@@ -51,6 +53,9 @@
                             Update
                         </button>
                     </div>
+                </div>
+                <div class="row">
+                    @include('sweetalert::alert')
                 </div>
             </form>
         </div>

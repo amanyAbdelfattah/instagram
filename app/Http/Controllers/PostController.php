@@ -68,7 +68,7 @@ class PostController extends Controller
             $post->pimg = '';
         }
         $post->save();
-        return redirect()->back();
+        return redirect()->back()->with(['success' => 'New Post added']);;
     }
 
     /**
@@ -80,6 +80,9 @@ class PostController extends Controller
     public function show($id)
     {
         //
+        $post = Post::findOrFail($id);
+        $user = Auth::user();
+        return view('showpost', compact('post' , 'user'));
     }
 
     /**
@@ -91,6 +94,8 @@ class PostController extends Controller
     public function edit($id)
     {
         //
+        $post = Post::findOrFail($id);
+        return view('editpost', compact('post'));
     }
 
     /**
@@ -102,7 +107,20 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //To update user information: first validate user inputs
+        $validator = Validator::make($request->all() , [
+            'pdesc' => ['required', 'min:4' , 'max:225'],
+        ]);
+        // ERROR: There is no validation rule named string
+        if($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }
+        // Second update user in DB
+        $post = Post::findOrFail($id);
+        $post->pdesc = $request->input('pdesc');
+        $post->update();
+        return redirect()->back()->with(['success' => 'Post is updated']);
     }
 
     /**
@@ -114,5 +132,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::findOrFail($id);
+        $post->delete();
+        return redirect('/home')->with(['success' => 'Post is deleted']);
     }
 }

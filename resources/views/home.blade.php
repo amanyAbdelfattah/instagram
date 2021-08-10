@@ -4,8 +4,6 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-11">
-            <div>
-
                 <div>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -23,7 +21,7 @@
                                 <i class="fas fa-cog"></i>
                             </div>
                             <div class="accinfo">
-                                <a href="#"><span>0</span> posts</a>
+                                <a href="#"><span>{{$post}}</span> posts</a>
                                 <a href="#"><span>148</span> followers</a>
                                 <a href="#"><span>136</span> following</a>
                             </div>
@@ -32,17 +30,20 @@
                             </div>
                         </div>
                     </div>
-                    @foreach ($posts as $post)
+                    @if ($post)
                     <div class="userpics">
-                        <img src="{{asset('uploads/posts/' . $post->pimg)}}" alt="">
-                        <div class="overlay">
+                        @foreach ($posts as $post)
+                            <a href="{{route('post.show' , $post->id)}}"><img src="{{asset('uploads/posts/' . $post->pimg)}}" alt=""></a>
+                        {{-- <div class="overlay">
                             <p><i class="fas fa-heart"></i> 56</p>
                             <p><i class="fas fa-comment"></i> 2</p>
-                        </div>
+                        </div> --}}
+                        @endforeach
                     </div>
-                    @endforeach
+                    @else 
+                    <h1>no posts yet</h1>
+                    @endif
                 </div>
-            </div>
         </div>
     </div>
 </div>
