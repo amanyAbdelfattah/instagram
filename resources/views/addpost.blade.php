@@ -10,7 +10,29 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Add New Post</h1>
                         </div>
+
                         <form method="POST" action="{{route('post.store')}}" class="user mx-5" enctype="multipart/form-data">
+                            <div class="row">
+                                @include('sweetalert::alert')
+                            </div>
+                            @csrf
+                            <div class="form-group">
+                                <label>Add Picture</label>
+                                <input type="file" class="form-control" name="pimg">
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="form-control" placeholder="Write Description" name="pdesc">
+                                @error('pdesc')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                            </div>
+                            <input type="submit" value="Add Post" class="btn btn-primary btn-user btn-block">
+                        </form>
+
+                        {{-- <form method="POST" action="{{route('post.store')}}" class="user mx-5" enctype="multipart/form-data">
                             <div class="row">
                                 @include('sweetalert::alert')
                             </div>
@@ -43,7 +65,7 @@
                                     <input type="submit" value="Add Post" class="btn btn-primary btn-user btn-block">
                                 </div>
                             </div>
-                        </form>
+                        </form> --}}
                     </div>
                 </div>
             </div>

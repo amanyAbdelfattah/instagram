@@ -30,18 +30,31 @@
                             </div>
                         </div>
                     </div>
+
                     @if ($post)
                     <div class="userpics">
-                        @foreach ($posts as $post)
-                            <a href="{{route('post.show' , $post->id)}}"><img src="{{asset('uploads/posts/' . $post->pimg)}}" alt=""></a>
-                        {{-- <div class="overlay">
-                            <p><i class="fas fa-heart"></i> 56</p>
-                            <p><i class="fas fa-comment"></i> 2</p>
-                        </div> --}}
-                        @endforeach
+                        <div class="post">
+                            @foreach ($posts as $post)
+                            <div class="postdetails">
+                                {{-- <a href="{{route('post.show' , $post->id)}}">ttt</a> --}}
+                                <div class="img">
+                                    <img src="{{asset('uploads/posts/' . $post->pimg)}}" alt="">
+                                </div>
+                                <a class="overlay" href="{{route('post.show' , $post->id)}}">
+                                    <p><i class="fas fa-heart"></i> 56</p>
+                                    <p><i class="fas fa-comment"></i> 2</p>
+                                </a>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                     @else 
-                    <h1>no posts yet</h1>
+                    <div class="error">
+                        <div class="camera">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h1>No Posts Yet</h1>
+                    </div>
                     @endif
                 </div>
         </div>

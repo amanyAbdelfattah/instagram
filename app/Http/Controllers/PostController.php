@@ -134,6 +134,6 @@ class PostController extends Controller
         //
         $post = Post::findOrFail($id);
         $post->delete();
-        return redirect('/home')->with(['success' => 'Post is deleted']);
+        return redirect('home')->with(['success' => 'Post is deleted']);
     }
 }
